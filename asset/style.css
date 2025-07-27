@@ -68,6 +68,26 @@
   margin-right: -3rem;                     
   margin-top: -3rem;                       
 }
+.nav-link::hover{
+    color: rgb(25, 109, 194);
+}
+.cuadro_2{
+    height: 90vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.cuadro_2 div{
+    height: 220px;
+    width: 200px;
+    background-color: rgb(222 232 243) ;
+    color:rgb(26, 25, 25);
+    font-weight: 600;
+    padding: 1rem;
+    border-radius: 5px;
+}
 
 /* d-none d-sm-block: oculto en xs, visible en sm+ */
 @media (max-width: 575.98px) {
