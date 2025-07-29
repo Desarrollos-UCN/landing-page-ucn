@@ -72,7 +72,7 @@
     color: rgb(25, 109, 194);
 }
 .cuadro_2{
-    height: 80vh;
+    height: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -160,7 +160,7 @@ img{
   }
 
   .carousel-btn.next {
-    right: 10px;
+    right: -10px;
   }
 
  
@@ -181,7 +181,7 @@ img{
     margin-right: -1rem; /* me-lg-n3 */
   }
   .carousel-card {
-      flex: 0 0 25%; /* 2 por fila en pantallas medianas */
+      flex: 0 0 33.33%; /* 2 por fila en pantallas medianas */
     }
 }
 
@@ -189,5 +189,8 @@ img{
   .mi-clase {
     margin-right: -3rem; /* me-xxl-n7 */
   }
+  .carousel-card {
+      flex: 0 0 25%; /* 2 por fila en pantallas medianas */
+    }
 }
 
