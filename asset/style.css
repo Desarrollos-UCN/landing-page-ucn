@@ -164,6 +164,26 @@ img{
     right: -10px;
   }
 
+   #miNavbar {
+        width: 100%;
+       /* transition: all 1s ease-in-out; */
+        transition:
+        transform 0.6s ease,
+        box-shadow 0.6s ease,
+        background-color 0.6s ease;
+  }
+
+  /* Estilos cuando se hace scroll y se fija */
+  #miNavbar.fixed-visible {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);    
+    transform: translateY(0); /* por si quieres efecto slide in */
+    z-index: 1000;
+  }
+
  
 
   

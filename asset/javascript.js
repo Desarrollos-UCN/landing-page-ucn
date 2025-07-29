@@ -37,3 +37,16 @@ const track = document.getElementById('carouselTrack');
   window.addEventListener('resize', updateVisibleCards);
 
 //   setInterval(slideNext, 5000); // Auto deslizamiento cada 1 segundo
+
+const navbar = document.getElementById('miNavbar');
+
+window.addEventListener('scroll', () => {
+const scrollY = window.scrollY || window.pageYOffset;
+const threshold = window.innerHeight / 2;
+
+if (scrollY > threshold) {
+    navbar.classList.add('fixed-visible');
+} else {
+    navbar.classList.remove('fixed-visible');
+}
+});
