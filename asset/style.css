@@ -192,6 +192,25 @@ img{
     width: 0;
     animation: typing 8s steps(52, end) infinite, blink-caret 0.9s step-end infinite;
   }
+  .fa-shopping-cart{
+    color: black;
+    font-size: 20px;
+  }
+  .contador{
+    height: 20px;
+    width: 20px;
+    background-color: #078f3d;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -6px;
+    right: -12px;
+    font-size: 12px;
+    font-weight: 700;
+  }
 
   @keyframes typing {
     0% { width: 0 }
