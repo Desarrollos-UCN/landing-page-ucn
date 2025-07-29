@@ -47,8 +47,9 @@
     margin: auto;
 }
 .cuadro_itaems_1{
+    padding-top: 10%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;;
     align-items: flex-start;
     flex-direction: column;
 }
@@ -62,8 +63,8 @@
   border-radius: 5px;                    
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15); 
   position: absolute;                     
-  right: -209px;                              
-  bottom: 10px;                                
+  left: 51%;                              
+  bottom: 18%;                                
   margin-right: -1rem;                     
   margin-right: -3rem;                     
   margin-top: -3rem;                       
