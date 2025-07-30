@@ -50,3 +50,6 @@ if (scrollY > threshold) {
     navbar.classList.remove('fixed-visible');
 }
 });
+
+
+  
