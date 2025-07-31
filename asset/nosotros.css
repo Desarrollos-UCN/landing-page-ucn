@@ -1,0 +1,108 @@
+/* Variables */
+:root {
+    --primary-color: rgb(4, 197, 78);
+    --white: #ffffff;
+    --dark-gray: #333333;
+    --medium-gray: #555555;
+    --light-gray: #f8f9fa;
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 0 40px;
+}
+
+.about-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    color: var(--dark-gray);
+    font-weight: 700;
+    text-align: center;
+}
+
+.about-content {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.about-content p {
+    margin-bottom: 30px;
+    color: var(--medium-gray);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Efectos y animaciones */
+.about-header h1 {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.about-content p {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.about-content p:nth-child(1) {
+    animation: fadeInUp 0.8s ease 0.3s forwards;
+}
+
+.about-content p:nth-child(2) {
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 0 20px;
+        margin: 60px auto;
+    }
+    
+    .about-header h1 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+    
+    .about-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about-content p {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
