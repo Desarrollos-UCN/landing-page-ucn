@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<nav id="miNavbar" class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid">
+
+         <nav id="miNavbar" class="navbar navbar-expand-lg navbar-light bg-light mb-5">
             <div class="container ">
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <div class="d-flex align-items-center gap-2">
@@ -45,88 +47,91 @@
                     </ul>
                     <div class="content__btn position-relative">
                         
-                        <button class="btn btn-inicio" type="button" ><span class="fa fa-user" aria-hidden="true"></span> Iniciar Sesión</button>
-                        <button class="btn btn-cerrar" type="button" ><span class="fa fa-sign-out" aria-hidden="true"></span> Cerrar Sesión</button>
+                        <a href="/pages/login.html" class="btn btn-inicio" type="button" ><span class="fa fa-user" aria-hidden="true"></span> </a>
+                        <!-- <button class="btn btn-cerrar" type="button" ><span class="fa fa-sign-out" aria-hidden="true"></span> Cerrar Sesión</button> -->
                         <span class="fa fa-shopping-cart" aria-hidden="true"></span>
-                        <span class="contador">1</span>
+                        <span class="contador">0</span>
                     </div>
                 </div>
             </div>
         </nav>
-    <div class="contact-container">
-        <div class="contact-header">
-            <h1>¿Tienes alguna pregunta?</h1>
-            <p>Estamos aquí para ayudarte. Completa el formulario o contáctanos por correo o teléfono. Nuestro equipo de atención al cliente está disponible para ayudarte.</p>
-            <p>Todos reciben una respuesta personalizada, por favor permite 24 horas durante horas laborales para una respuesta. Nuestro horario es de L-V de 9am a 5pm PT.</p>
-        </div>
-
-        <div class="contact-info">
-            <div class="contact-method">
-                <i class="fas fa-envelope"></i>
-                <span>hello@JetSneaks.com</span>
+        <div class="contact-container">
+            <div class="contact-header">
+                <h1>¿Tienes alguna pregunta?</h1>
+                <p>Estamos aquí para ayudarte. Completa el formulario o contáctanos por correo o teléfono. Nuestro equipo de atención al cliente está disponible para ayudarte.</p>
+                <p>Todos reciben una respuesta personalizada, por favor permite 24 horas durante horas laborales para una respuesta. Nuestro horario es de L-V de 9am a 5pm PT.</p>
             </div>
-            <div class="contact-method">
-                <i class="fas fa-phone"></i>
-                <span>(604) 6051535</span>
-            </div>
-            <div class="contact-method">
-                <i class="fas fa-comment-dots"></i>
-                <span>Chatea con nosotros</span>
-            </div>
-        </div>
-
-        <form id="contactForm" class="contact-form">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="firstName">*Nombre</label>
-                    <input type="text" id="firstName" name="firstName" required>
+    
+            <div class="contact-info">
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <span>hello@JetSneaks.com</span>
                 </div>
-                <div class="form-group">
-                    <label for="lastName">Apellido</label>
-                    <input type="text" id="lastName" name="lastName">
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <span>(604) 6051535</span>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Chatea con nosotros</span>
                 </div>
             </div>
-
-            <div class="form-group">
-                <label for="email">*Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="phone">Teléfono (opcional)</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
-
-            <div class="form-group">
-                <label for="topic">*Selecciona tu tema</label>
-                <select id="topic" name="topic" required>
-                    <option value="" disabled selected>Selecciona una opción</option>
-                    <option value="order">Consulta sobre pedido</option>
-                    <option value="product">Consulta sobre producto</option>
-                    <option value="technical">Soporte técnico</option>
-                    <option value="other">Otro</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="orderNumber">Número de pedido (opcional)</label>
-                <input type="text" id="orderNumber" name="orderNumber">
-            </div>
-
-            <div class="form-group">
-                <label for="salonName">Nombre del salón (si aplica)</label>
-                <input type="text" id="salonName" name="salonName">
-            </div>
-
-            <div class="form-group">
-                <label for="message">*Mensaje</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">ENVIAR</button>
-        </form>
+    
+            <form id="contactForm" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">*Nombre</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Apellido</label>
+                        <input type="text" id="lastName" name="lastName">
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="email">*Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="phone">Teléfono (opcional)</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+    
+                <div class="form-group">
+                    <label for="topic">*Selecciona tu tema</label>
+                    <select id="topic" name="topic" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="order">Consulta sobre pedido</option>
+                        <option value="product">Consulta sobre producto</option>
+                        <option value="technical">Soporte técnico</option>
+                        <option value="other">Otro</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="orderNumber">Número de pedido (opcional)</label>
+                    <input type="text" id="orderNumber" name="orderNumber">
+                </div>
+    
+                <div class="form-group">
+                    <label for="salonName">Nombre del salón (si aplica)</label>
+                    <input type="text" id="salonName" name="salonName">
+                </div>
+    
+                <div class="form-group">
+                    <label for="message">*Mensaje</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+    
+                <button type="submit" class="submit-btn">ENVIAR</button>
+            </form>
+        </div>
     </div>
 
+    <script src="/asset/javascript.js"></script>
+</body>
 <footer class="footer">
     <div class="container">
         <div class="footer-top">
@@ -203,6 +208,4 @@
         </div>
     </div>
 </footer>
-<script src="/asset/javascript.js"></script>
-</body>
 </html>

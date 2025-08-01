@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="/asset/nosotros.css">
 </head>
 <body>
-<nav id="miNavbar" class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid">
+
+         <nav id="miNavbar" class="navbar navbar-expand-lg navbar-light bg-light mb-5">
             <div class="container ">
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <div class="d-flex align-items-center gap-2">
@@ -45,25 +47,28 @@
                     </ul>
                     <div class="content__btn position-relative">
                         
-                        <button class="btn btn-inicio" type="button" ><span class="fa fa-user" aria-hidden="true"></span> Iniciar Sesión</button>
-                        <button class="btn btn-cerrar" type="button" ><span class="fa fa-sign-out" aria-hidden="true"></span> Cerrar Sesión</button>
+                        <a href="/pages/login.html" class="btn btn-inicio" type="button" ><span class="fa fa-user" aria-hidden="true"></span> </a>
+                        <!-- <button class="btn btn-cerrar" type="button" ><span class="fa fa-sign-out" aria-hidden="true"></span> Cerrar Sesión</button> -->
                         <span class="fa fa-shopping-cart" aria-hidden="true"></span>
-                        <span class="contador">1</span>
+                        <span class="contador">0</span>
                     </div>
                 </div>
             </div>
         </nav>
-    <div class="about-container">
-        <div class="about-header">
-            <h1>Nosotros</h1>
-        </div>
-        
-        <div class="about-content">
-            <p>Somos una empresa dedicada al calzado para todas las peronas, desde los gustos más clasicos hasta los  más nuevos.</p>
+        <div class="about-container">
+            <div class="about-header">
+                <h1>Nosotros</h1>
+            </div>
             
-            <p>Ven a conocernos, contactanos y revisa nuestros productos</p>
+            <div class="about-content">
+                <p>Somos una empresa dedicada al calzado para todas las peronas, desde los gustos más clasicos hasta los  más nuevos.</p>
+                
+                <p>Ven a conocernos, contactanos y revisa nuestros productos</p>
+            </div>
         </div>
     </div>
+    <script src="/asset/javascript.js"></script>
+</body>
 <footer class="footer">
     <div class="container">
         <div class="footer-top">
@@ -140,6 +145,4 @@
         </div>
     </div>
 </footer>
-<script src="/asset/javascript.js"></script>
-</body>
 </html>
