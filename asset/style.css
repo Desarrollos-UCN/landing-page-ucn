@@ -4,7 +4,7 @@
 #navbarNavDropdown {
     position: relative;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -16,13 +16,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 .btn-cerrar, .btn_ver_productos {
     background-color: #089c44;
     color: rgb(252, 250, 250);
     font-weight: 600;
     
+}
+.cuad_lo{
+    padding: 23px;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 li{
     list-style: none;
@@ -60,7 +64,7 @@ li{
 
 
 .btn-inicio {    
-    background-color: rgb(222 232 243) ;
+    /* background-color: rgb(222 232 243) ; */
     color:rgb(26, 25, 25);
     font-weight: 600;
     
