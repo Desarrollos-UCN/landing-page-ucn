@@ -1,50 +1,50 @@
 // Lógica de productos y modal para mas-vendidos.html
 const productos = [
     {
-        nombre: 'Air Jordan Fire',
-        descripcion: 'Zapatilla icónica con diseño en llamas, ideal para quienes buscan estilo y comodidad en cada paso.',
+        nombre: 'Casual Jet Blanco',
+        descripcion: 'Zapato casual que te hara lucir bien en cualquier momento.',
         precio: '$129.990',
         imagenes: [
             '../imagenes/SNIKER1.png',
-            '../imagenes/flux_jet.png',
-            '../imagenes/casual_jet.png',
-            '../imagenes/Botacarrusel.png'
+            '../imagenes/sniker2.png',
+            '../imagenes/sniker3.png',
+            '../imagenes/sniker4.png'
         ],
         tallas: ['7', '8', '9', '10', '11']
     },
     {
-        nombre: 'Flux Jet',
+        nombre: 'Flux Jet Red',
         descripcion: 'Zapatilla deportiva de alto rendimiento, perfecta para entrenamientos intensos.',
-        precio: '$99.990',
+        precio: '$199.990',
         imagenes: [
             '../imagenes/flux_jet.png',
-            '../imagenes/SNIKER1.png',
-            '../imagenes/casual_jet.png',
-            '../imagenes/Botacarrusel.png'
+            '../imagenes/flux_jet2.png',
+            '../imagenes/flux_jet3.png',
+            '../imagenes/flux_jet4.png'
         ],
         tallas: ['7', '8', '9', '10', '11']
     },
     {
         nombre: 'Casual Jet',
         descripcion: 'Zapatilla casual con diseño moderno, ideal para el día a día.',
-        precio: '$89.990',
+        precio: '$109.990',
         imagenes: [
             '../imagenes/casual_jet.png',
-            '../imagenes/SNIKER1.png',
-            '../imagenes/flux_jet.png',
-            '../imagenes/Botacarrusel.png'
+            '../imagenes/casual_jet2.png',
+            '../imagenes/Flux_Dev_Disea_un_tenis_de_casual_de_la_marca_Jet_crea_4_imgen_2.jpg',
+            '../imagenes/Flux_Dev_Disea_un_tenis_de_casual_de_la_marca_Jet_crea_4_imgen_2.jpg'
         ],
         tallas: ['7', '8', '9', '10', '11']
     },
     {
         nombre: 'Bota Carrusel',
         descripcion: 'Bota elegante y cómoda, perfecta para cualquier ocasión.',
-        precio: '$109.990',
+        precio: '$239.990',
         imagenes: [
             '../imagenes/Botacarrusel.png',
-            '../imagenes/casual_jet.png',
-            '../imagenes/flux_jet.png',
-            '../imagenes/SNIKER1.png'
+            '../imagenes/botacarrusel2.png',
+            '../imagenes/botacarrusel3.png',
+            '../imagenes/botacarrusel4.png'
         ],
         tallas: ['7', '8', '9', '10', '11']
     }
