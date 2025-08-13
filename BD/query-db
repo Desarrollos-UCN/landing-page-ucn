@@ -1,0 +1,19 @@
+CREATE DATABASE ucnpage;
+---
+CREATE table ucnpage.users(
+    id int not null auto_increment primary key,
+    nombres varchar(50) not null,
+    apellidos varchar(50) not null,
+    colorCabello varchar(50) not null,
+    colorOjos varchar(50) not null,
+    edad int not null,
+    Hobby varchar(100) not null
+);
+---
+drop table ucpage.users;
+---
+select * from ucpage.users;
+---
+insert into ucnpage.users(nombres, apellidos, colorCabello, colorOjos, edad, Hobby) values
+('Juan', 'Pérez', 'Castaño', 'Marrón', 30, 'Fútbol');
+---

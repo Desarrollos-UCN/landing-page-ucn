@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Básico</title>
+</head>
+<body>
+
+    <h2>Formulario de Registro</h2>
+
+    <form action="../php/conect.php" method="post">
+        <!-- Nombres -->
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" maxlength="50" required><br><br>
+
+        <!-- Apellidos -->
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" maxlength="50" required><br><br>
+
+        <!-- Color de Cabello -->
+        <label for="colorCabello">Color de Cabello:</label>
+        <input type="text" id="colorCabello" name="colorCabello" maxlength="50" required><br><br>
+
+        <!-- Color de Ojos -->
+        <label for="colorOjos">Color de Ojos:</label>
+        <input type="text" id="colorOjos" name="colorOjos" maxlength="50" required><br><br>
+
+        <!-- Edad -->
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required><br><br>
+
+        <!-- Hobby -->
+        <label for="hobby">Hobby:</label>
+        <input type="text" id="hobby" name="hobby" maxlength="100" required><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>
