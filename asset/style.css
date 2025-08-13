@@ -525,3 +525,13 @@ img{
 .footer-contact-item:nth-child(3) { animation-delay: 0.3s; }
 .footer-contact-item:nth-child(4) { animation-delay: 0.4s; }
 
+.contact-form{
+    font-size: 14px;
+}
+.c_input{
+    background-image: none !important;
+    border: 1px solid #d2d2d29c !important;
+    border-bottom: 1px solid #d2d2d29c !important;
+    border-radius: 10px !important;
+    transition: border-color 0.3s;
+}

@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/asset/style.css">
+    
     </head>
 <body>
-    <div class="container-fluid">
-        <nav id="miNavbar" class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+    <div class="container-fluid"> 
+        <nav id="miNavbar" class="navbar navbar-expand-lg navbar-light bg-light ">
             <div class="container ">
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <div class="d-flex align-items-center gap-2">
@@ -44,7 +45,7 @@
                     </ul>
                     <div class="content__btn position-relative">
                         
-                        <button class="btn btn-inicio" type="button" ><span class="fa fa-user" aria-hidden="true"></span> </button>
+                        <a href="/pages/login.html" class="btn btn-inicio" type="button" ><span class="fa fa-user" aria-hidden="true"></span> </a>
                         <!-- <button class="btn btn-cerrar" type="button" ><span class="fa fa-sign-out" aria-hidden="true"></span> Cerrar Sesión</button> -->
                         <span class="fa fa-shopping-cart" aria-hidden="true"></span>
                         <span class="contador">0</span>
@@ -52,53 +53,59 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <div class=" row container_login">
-                <div class="col-md-2 col-sm-2"></div>
-                <div class="col-md-8 col-sm-8 cuad_lo">
-                    <h2 class="text-center p-1 mb-1" >Registrarse</h2>
-                    <p class="text-center  mb-2" >Crea una cuenta para poder acceder a nuestra tienda online</p>
-                    <form >
-                        <div class="form-group mb-4">
-                            <label for="exampleInputEmail1">Nombre</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            
-                        </div>
-                        <div class="form-group mb-4">
-                            <label for="exampleInputEmail1">Apellidos</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            
-                        </div>
-                        <div class="form-group mb-4">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <div class="container mt-4">
+            <div class="row pa-5">      
+                <div class="col-md-5 col-sm-5 col-xs-12 cuad_lo">
+                    <h2 class="text-center p-1 mb-1" >Registrate</h2>
+                    <p class="text-center  mb-2" >Al registrarte generaremos un cuento para ti</p>
+                    <form id="disena_tu_cuento" class="contact-form" onsubmit="enviarFormulario(event)">
+                        <div class="form-group mb-2">
+                            <label for="nombres">Nombre</label>
+                            <input type="text" class="form-control c_input"  placeholder="Escribe tu nombre"  id="nombre" name="nombres" maxlength="50" required>
                             
                         </div>
                         <div class="form-group mb-2">
-                            <label for="exampleInputPassword1">Contraseña</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" class="form-control c_input"  placeholder="Escribe tu apellidos" id="apellidos" name="apellidos" maxlength="50" required>
+                            
                         </div>
                         <div class="form-group mb-2">
-                            <label for="exampleInputPassword1">Confirmar Contraseña</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <div class="form-check mb-4 " style="font-size: 12px;">
+                            <label for="colorCabello">Color de Cabello</label>
+                            <input type="text" class="form-control c_input"  placeholder="Escribe tu color de cabello" id="colorCabello" name="colorCabello" maxlength="50" required>
                             
-                            <div >
-                                <span>¿Ya tienes cuenta? <span><a href="/pages/login.html" class=" text-success text-center"> Inicia sesión </a></span></span>                        
-                            </div>
                         </div>
+                        <div class="form-group mb-2">
+                            <label for="colorOjos">Color de Ojos</label>
+                            <input type="text" class="form-control c_input"  placeholder="Escribe tu color de ojos" id="colorOjos" name="colorOjos" maxlength="50" required>
+                            
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="edad">Edad</label>
+                            <input type="number" class="form-control c_input"  placeholder="Escribe tu edad" id="edad" name="edad" required>
+                            
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="hobby">Hobby</label>
+                            <textarea class="form-control c_input" name="hobby" id="hobby" rows="3" placeholder="Escribe tu hobby"></textarea>
+                        </div>                  
+                        
                         <div class="text-center">
-                            <button type="submit"  class="btn btn-success text-center contactanos_2">Rgistrate</button>
-
+                            <button type="submit"  class="btn btn-success text-center contactanos_2">Enviar</button>                        
                         </div>
                     </form>
                 </div>
-                <div class="col-md-2 col-sm-2"></div>
-                
+                <div class="col-md-7 col-sm-7 col-xs-12 pa-5">
+    
+                    <h2>Aqui va el cuento</h2>
+    
+                </div>
             </div>
         </div>
     </div>
-    
+                
+
+<script src="/asset/envio_formulario_cuento.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>
