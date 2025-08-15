@@ -30,6 +30,7 @@ async function enviarFormulario(e) {
             });
         }
 
+        
     } catch (error) {
         Swal.fire({
             title: 'Error de conexión',
