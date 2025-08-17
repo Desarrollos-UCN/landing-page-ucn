@@ -32,7 +32,7 @@ if ($stmt === false) {
 $stmt->bind_param("ssssis", $nombres, $apellidos, $colorCabello, $colorOjos, $edad, $hobby);
 
 if ($stmt->execute()) {
-    exit(json_encode(["status" => "ok", "mensaje" => "Registro guardado correctamente"]));
+    exit(json_encode(["status" => "ok", "mensaje" => "Registro guardado correctamente", "id" => $stmt->insert_id]));
 } else {
     exit(json_encode(["status" => "error", "mensaje" => "Error al guardar: " . $stmt->error]));
 }
