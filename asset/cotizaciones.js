@@ -84,7 +84,10 @@ async function enviarCotizacion(e) {
             text: resultado.mensaje,
             icon: 'success',
             confirmButtonText: 'Aceptar'
+        }).then(function () {
+            modal.style.display = "none";
         });
+
     }
 }
 
