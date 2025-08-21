@@ -21,57 +21,94 @@ insert into ucnpage.users(nombres, apellidos, colorCabello, colorOjos, edad, Hob
 
 
 
-/* Tablas para usuarios y pedidos*/
-CREATE TABLE ciudades (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
-    departamento VARCHAR(100) NOT NULL
-);
+/CREATE TABLE IF NOT EXISTS `ciudades` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `departamento` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE productos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(200) NOT NULL,
-    descripcion TEXT,
-    precio DECIMAL(10,2) NOT NULL
-);
+-- Volcando datos para la tabla ucnpage.ciudades: ~9 rows (aproximadamente)
+INSERT INTO `ciudades` (`id`, `nombre`, `departamento`) VALUES
+	(1, 'Medellín', 'Antioquia'),
+	(2, 'Barranquilla', 'Antlantico'),
+	(3, 'itagui', 'Antioquia'),
+	(4, 'Bogota', 'Cundinamarca'),
+	(5, 'Sabaneta', 'Antioquia'),
+	(6, 'Envigado', 'Antioquia'),
+	(7, 'Valledupar', 'Cesar'),
+	(8, 'Santa marta', 'Magdalena'),
+	(9, 'Bucaramanga', 'Santander');
 
-CREATE TABLE pedidos (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombres VARCHAR(100) NOT NULL,
-    apellidos VARCHAR(100) NOT NULL,
-    ciudad_id INT NOT NULL,
-    direccion TEXT NOT NULL,
-    celular VARCHAR(20) NOT NULL,
-    FOREIGN KEY (ciudad_id) REFERENCES ciudades(id)
-);
+-- Volcando estructura para tabla ucnpage.cotizaciones
+CREATE TABLE IF NOT EXISTS `cotizaciones` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_completo` varchar(100) NOT NULL,
+  `ciudad_id` int(11) NOT NULL,
+  `direccion` text NOT NULL,
+  `celular` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ciudad_id` (`ciudad_id`),
+  CONSTRAINT `cotizaciones_ibfk_1` FOREIGN KEY (`ciudad_id`) REFERENCES `ciudades` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE pedido_detalles (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    pedido_id INT NOT NULL,
-    producto_id INT NOT NULL,
-    cantidad INT NOT NULL DEFAULT 1,
-    precio_unitario DECIMAL(10,2) NOT NULL,
-    subtotal DECIMAL(10,2) GENERATED ALWAYS AS (cantidad * precio_unitario) STORED,ñ
-    FOREIGN KEY (pedido_id) REFERENCES pedidos(id) ON DELETE CASCADE,
-    FOREIGN KEY (producto_id) REFERENCES productos(id)
-);
-/* agregar ciudades */
-INSERT INTO ciudades (nombre, departamento)
-VALUES ('Medellín', 'Antioquia');
+-- Volcando datos para la tabla ucnpage.cotizaciones: ~1 rows (aproximadamente)
+INSERT INTO `cotizaciones` (`id`, `nombre_completo`, `ciudad_id`, `direccion`, `celular`) VALUES
+	(2, 'jeiner aldana arenas', 7, 'mz 3 casa 10', '3014782018'),
+	(3, 'jeiner aldana arenas', 7, 'mz 3 casa 10', '3014782018');
 
-/* agregar producto */
-INSERT INTO productos (nombre, descripcion, precio)
-VALUES ('Laptop Lenovo', 'Laptop con 16GB RAM y 512GB SSD', 3200000.00);
+-- Volcando estructura para tabla ucnpage.detalles_cotizacion
+CREATE TABLE IF NOT EXISTS `detalles_cotizacion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cotizacion_id` int(11) NOT NULL,
+  `producto_id` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT 1,
+  `precio_unitario` decimal(10,2) NOT NULL,
+  `subtotal` decimal(10,2) GENERATED ALWAYS AS (`cantidad` * `precio_unitario`) STORED,
+  PRIMARY KEY (`id`),
+  KEY `producto_id` (`producto_id`),
+  KEY `cotizacion_id` (`cotizacion_id`) USING BTREE,
+  CONSTRAINT `detalles_cotizacion_ibfk_1` FOREIGN KEY (`cotizacion_id`) REFERENCES `cotizaciones` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `detalles_cotizacion_ibfk_2` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/* instar un pedido */
-INSERT INTO pedidos (nombres, apellidos, ciudad_id, direccion, celular)
-VALUES ('Juan', 'Pérez', 1, 'Calle 123 #45-67', '3001234567');
+-- Volcando datos para la tabla ucnpage.detalles_cotizacion: ~5 rows (aproximadamente)
+INSERT INTO `detalles_cotizacion` (`id`, `cotizacion_id`, `producto_id`, `cantidad`, `precio_unitario`) VALUES
+	(1, 2, 11, 1, 400000.00),
+	(2, 2, 12, 1, 350000.00),
+	(3, 2, 13, 1, 720000.00),
+	(4, 2, 14, 1, 680000.00),
+	(5, 2, 15, 1, 180000.00),
+	(6, 3, 1, 5, 420000.00),
+	(7, 3, 6, 3, 310000.00),
+	(8, 3, 13, 4, 720000.00),
+	(9, 3, 15, 2, 180000.00);
 
+CREATE TABLE IF NOT EXISTS `productos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(200) NOT NULL,
+  `descripcion` text DEFAULT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/* insertar un detalle pedido */
-INSERT INTO pedido_detalles (pedido_id, producto_id, cantidad, precio_unitario)
-VALUES (1, 1, 2, 3200000.00);INSERT INTO pedido_detalles (pedido_id, producto_id, cantidad, precio_unitario)
-VALUES (1, 1, 2, 3200000.00);
+-- Volcando datos para la tabla ucnpage.productos: ~15 rows (aproximadamente)
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`) VALUES
+	(1, 'Nike Air Max', 'Zapatillas deportivas Nike Air Max para hombre, color negro, talla 40-44', 420000.00),
+	(2, 'Adidas Ultraboost', 'Zapatillas running Adidas Ultraboost con amortiguación Boost, unisex', 580000.00),
+	(3, 'Puma RS-X', 'Sneakers Puma RS-X de estilo urbano, disponibles en varias tallas', 390000.00),
+	(4, 'Converse Chuck Taylor', 'Clásicas Converse Chuck Taylor All Star de lona blanca, unisex', 250000.00),
+	(5, 'Vans Old Skool', 'Zapatillas Vans Old Skool de gamuza y lona, color negro con franja blanca', 280000.00),
+	(6, 'Reebok Classic Leather', 'Tenis Reebok Classic de cuero, estilo retro, color blanco', 310000.00),
+	(7, 'Under Armour HOVR', 'Zapatillas de entrenamiento Under Armour HOVR, color azul marino', 450000.00),
+	(8, 'New Balance 574', 'Tenis casuales New Balance 574, suela de goma y upper en malla y gamuza', 370000.00),
+	(9, 'Skechers Go Walk', 'Zapatos Skechers Go Walk con plantilla memory foam, ideales para caminar', 270000.00),
+	(10, 'Fila Disruptor II', 'Zapatillas Fila Disruptor II con suela chunky, color blanco', 330000.00),
+	(11, 'Nike Air Force 1', 'Clásicos Nike Air Force 1 Low, de cuero, color blanco', 400000.00),
+	(12, 'Adidas Superstar', 'Zapatillas Adidas Superstar con puntera shell toe, color blanco y negro', 350000.00),
+	(13, 'Timberland Premium Boot', 'Botas Timberland Premium impermeables de cuero nubuck, color amarillo', 720000.00),
+	(14, 'Dr. Martens 1460', 'Botas Dr. Martens 1460 de 8 ojales, color negro, suela con costura amarilla', 680000.00),
+	(15, 'Crocs Classic Clog', 'Sandalias Crocs Classic Clog ligeras y cómodas, color azul', 180000.00);
 
 /* consultar ciudades */ 
 
@@ -80,16 +117,16 @@ SELECT * FROM ciudades;
 /* consultar productos */
 SELECT * FROM productos;
 
-/* consultar los detalles de un peedido */ 
+/* consultar los detalles de una cotizacion */ 
 SELECT d.id, pr.nombre AS producto, d.cantidad, d.precio_unitario, d.subtotal
-FROM pedido_detalles d
+FROM detalles_cotizacion d
 JOIN productos pr ON d.producto_id = pr.id
-WHERE d.pedido_id = 1;
+WHERE d.cotizacion_id = 1;
 
-/* consultar todos los pedidos y su total*/ 
-SELECT p.id, p.nombres, p.apellidos, c.nombre AS ciudad, 
-       SUM(d.subtotal) AS total_pedido
-FROM pedidos p
+/* consultar todos los cotizaciones y su total*/ 
+SELECT p.id, p.nombre_completo, c.nombre AS ciudad, 
+    SUM(d.subtotal) AS total_cotizacion
+FROM cotizaciones p
 JOIN ciudades c ON p.ciudad_id = c.id
-JOIN pedido_detalles d ON p.id = d.pedido_id
-GROUP BY p.id, p.nombres, p.apellidos, c.nombre;
+JOIN detalles_cotizacion d ON p.id = d.cotizacion_id
+GROUP BY p.id, p.nombre_completo, c.nombre;
