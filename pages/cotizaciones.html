@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JetSneaks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/asset/style.css">
+    <link rel="stylesheet" href="/asset/cotizaciones.css">
+    </head>
+<body>
+    <div class="container-fluid mb-10"> 
+        <nav id="miNavbar" class="navbar navbar-expand-lg navbar-light bg-light ">
+            <div class="container ">
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <div class="d-flex align-items-center gap-2">
+                        <div><img src="/imagenes/07717930950d4694a91e5ce74da7aa20-silueta-de-velocidad-de-zapatillas-para-correr.webp" alt="log" id="img_logo"></div>
+                        <div><a href="/index.html" class="navbar-brand">  JetSneaks</a></div>
+                        
+                    </div>
+                    <ul class="navbar-nav">                    
+                        <div class="navs__item">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pages/nosotros.html">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pages/contacto.html">Contacto</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Nuestros Servicios
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="/pages/productos.html"><span class="fa fa-cart-arrow-down"></span> Productos</a></li>
+                                    <li><a class="dropdown-item" href="/pages/mas-vendidos.html"><span class="fa fa-binoculars"></span>  Los mas vendidos</a></li>
+                                    <li><a class="dropdown-item" href="/pages/disena_tu_cuento.html"><span class="fa fa-pencil-square-o"></span>  Diseña tu Cuento</a></li>
+                                    <li><a class="dropdown-item" href="/pages/cotizaciones.html"><span class="fa fa-pencil-square"></span> Cotizaciones</a></li>
+                                    
+                                </ul>
+                            </li>
+                        </div>
+                        
+                    </ul>
+                    <div class="content__btn position-relative">
+                        
+                        <a href="/pages/login.html" class="btn btn-inicio" type="button" ><span class="fa fa-user" aria-hidden="true"></span> </a>
+                        <!-- <button class="btn btn-cerrar" type="button" ><span class="fa fa-sign-out" aria-hidden="true"></span> Cerrar Sesión</button> -->
+                        <span class="fa fa-shopping-cart" aria-hidden="true"></span>
+                        <span class="contador">0</span>
+                    </div>
+                </div>
+            </div>
+        </nav>        
+        <div class="container" >
+            <div class="row">
+                <div class="row mb-5 pa10 content_boton_2">
+                    <button type="button" id="openModalBtn" class="btn btn-primary">Crear nueva cotización</button>
+
+                </div>
+                <div class="pa10 mb-5">
+                    <h2>Cotizaciones</h2>
+                    <p>Aquí podrás ver todas las cotizaciones que has enviado y recibido.</p>
+
+                </div>                
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Nombres y Apellidos</th>
+                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Dirección</th>
+                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Celular</th>
+                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Ciudad</th>
+                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Nombre Producto</th>
+                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Precio Unitario</th>
+                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Descripción Producto </th>
+                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Total </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="tablaCotizaciones">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModalBtn" class="close">&times;</span>
+                <div class="row mt-5 " id="containar_cotizaciones">
+                    <div class="card shadow-lg">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0">Solicitud de Cotización</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="formCotizacion">
+                                <!-- Nombres y Apellidos -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                        <label for="nombre" class="form-label">Nombres y Apellidos</label>
+                                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre completo" required>
+                                        </div>
+                                    </div>
+                                    <!-- Ciudad -->
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="ciudad" class="form-label">Ciudad</label>
+                                            <select id="ciudad" name="ciudad" class="form-select" required>                  
+                                            </select>
+                                        </div>
+                                    </div>    
+                                    <!-- Dirección -->
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                        <label for="direccion" class="form-label">Dirección</label>
+                                        <input type="text" class="form-control" id="direccion" placeholder="Ingrese su dirección" required>
+                                        </div>
+                                    </div>    
+                                    <!-- Celular -->
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="celular" class="form-label">Celular</label>
+                                            <input type="tel" class="form-control" id="celular" placeholder="3001234567" required>
+                                        </div>
+                                    </div>    
+                                    <div class="col-md-12">
+                                        <h5>Selectiona los productos que desea incluir en la cotización</h5>
+                                        <div class="table-responsive" style="max-height:400px; overflow-y:auto;">
+                                            <table class="table table-bordered table-hover align-middle">
+                                                <thead class="table-light">
+                                                <tr>
+                                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Seleccionar</th>
+                                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Producto</th>
+                                                    <th style="position: sticky; top: 0; background: #f8f9fa; z-index: 2;">Cantidad</th>
+                                                    
+                                                </tr>
+                                                </thead>
+                                                <tbody id="tablaProductos"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pa10 content_boton">
+                                    <button type="submit" width="30%" class="btn btn-success">Enviar Cotización</button>
+                                    <button type="button" width="30%" class="btn btn-danger" id="closeModalBtn2" class="close"">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    
+    <script src="/asset/cotizaciones.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+<footer class="footer">
+        <div class="container-fluid">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/imagenes/07717930950d4694a91e5ce74da7aa20-silueta-de-velocidad-de-zapatillas-para-correr.webp" alt="log" id="img_logo">
+                    <p class="footer-text">Empresa dedicada al calzado para hombre y para dama</p>
+                    
+                    <div class="social-list">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-list">
+                    <h3 class="footer-list-title">Contacto</h3>
+                    <ul>
+                        <li class="footer-contact-item">
+                            <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                            <span class="contact-text">Santa Rosa de Osos</span>
+                        </li>
+                        
+                        <li class="footer-contact-item">
+                            <div class="icon-box"><i class="fas fa-phone"></i></div>
+                            <span class="contact-text">(604) 6051535</span>
+                        </li>
+                        
+                        <li class="footer-contact-item">
+                            <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
+                            <span class="contact-text">WhatsApp: (604) 6051535</span>
+                        </li>
+                        
+                        <li class="footer-contact-item">
+                            <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                            <span class="contact-text">JET@jetsneaks.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-list">
+                    <h3 class="footer-list-title">Horario</h3>
+                    <ul>
+                        <li class="footer-contact-item">
+                            <div class="icon-box"><i class="fas fa-clock"></i></div>
+                            <span class="contact-text">Lunes a Viernes: 9:00 - 18:00</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <div class="icon-box"><i class="fas fa-clock"></i></div>
+                            <span class="contact-text">Sábados: 10:00 - 14:00</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <div class="icon-box"><i class="fas fa-clock"></i></div>
+                            <span class="contact-text">Domingos: Cerrado</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-list">
+                    <h3 class="footer-list-title">Ubicación</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.908211620655!2d-75.44923782317514!3d6.658297521578519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e44446723a3c643%3A0xa67222f228873640!2sCat%C3%B3lica%20del%20Norte%20Fundacion%20Universitaria!5e0!3m2!1ses-419!2sco!4v1753921896458!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 JetSneaks. Todos los derechos reservados.</p>
+                <ul class="footer-bottom-list">
+                    <li><a href="#" class="footer-bottom-link">Política de Privacidad</a></li>
+                    <li><a href="#" class="footer-bottom-link">Términos de Servicio</a></li>
+                    <li><a href="#" class="footer-bottom-link">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+</footer>
+</html>

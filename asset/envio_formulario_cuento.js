@@ -2,7 +2,7 @@ async function enviarFormulario(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
     try {
-        const respuesta = await fetch('../php/conect.php', {
+        const respuesta = await fetch('../php/formulario_cuento.php', {
             method: 'POST',
             body: formData
         });
