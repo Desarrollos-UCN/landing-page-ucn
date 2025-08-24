@@ -41,7 +41,7 @@ async function cargarProductos() {
   });
 }
 
-// Cargar cotizaciones y llenar la tabla
+// Cargo las cotizaciones y lleno la tabla
 async function cargarCotizaciones() {
   try {
     const res = await fetch("../php/get_cotizaciones.php");
