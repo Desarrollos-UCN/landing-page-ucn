@@ -1,11 +1,15 @@
-document.addEventListener("DOMContentLoaded", () => { 
+document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("formCotizacion");
   form.addEventListener("submit", enviarCotizacion);
 
+
+
 });
+
 cargarCiudades();
 cargarProductos();
+cargarCotizaciones();
 
 async function cargarCiudades() {
   const res = await fetch("../php/get_ciudades.php");
@@ -37,6 +41,33 @@ async function cargarProductos() {
   });
 }
 
+// Cargar cotizaciones y llenar la tabla
+async function cargarCotizaciones() {
+  try {
+    const res = await fetch("../php/get_cotizaciones.php");
+    const cotizaciones = await res.json();
+    const tabla = document.getElementById("tablaCotizaciones");
+    tabla.innerHTML = "";
+
+    cotizaciones.forEach(c => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${c.nombre_completo}</td>
+        <td>${c.direccion}</td>
+        <td>${c.celular}</td>
+        <td>${c.ciudad}</td>
+        <td>${c.nombre_producto}</td>
+        <td>${c.descripcion_producto}</td>
+        <td>${Number(c.precio_unitario).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+        <td>${c.cantidad}</td>
+        <td>${Number(c.subtotal).toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}</td>
+      `;
+      tabla.appendChild(tr);
+    });
+  } catch (error) {
+    console.error("Error cargando cotizaciones:", error);
+  }
+}
 
 async function enviarCotizacion(e) {
   e.preventDefault();
@@ -48,47 +79,48 @@ async function enviarCotizacion(e) {
     celular: document.getElementById("celular").value,
     productos: []
   };
-  
 
-    document.querySelectorAll("#tablaProductos tr").forEach(tr => {
-        const chk = tr.querySelector('input[type="checkbox"]');
-        const cantidadInput = tr.querySelector('.cantidad');
-        const precioInput = tr.querySelector('.precio');
 
-        if (chk && chk.checked) {
-            data.productos.push({
-            id: chk.value,
-            cantidad: cantidadInput.value,
-            precio: precioInput.value
-            });
-        }
-    });
+  document.querySelectorAll("#tablaProductos tr").forEach(tr => {
+    const chk = tr.querySelector('input[type="checkbox"]');
+    const cantidadInput = tr.querySelector('.cantidad');
+    const precioInput = tr.querySelector('.precio');
 
-    const res = await fetch("/php/cotizaciones.php", {
-        method: "POST",
-        body: JSON.stringify(data)
-    });
-
-    const resultado = await res.json();
-    if (resultado.status === "error" || resultado.status === undefined || resultado.status === null) {
-        Swal.fire({
-            title: 'Error',
-            text: resultado.mensaje,
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-        });
-        
-    } else {
-        Swal.fire({
-            title: 'Éxitoso',
-            text: resultado.mensaje,
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-        }).then(function () {
-            modal.style.display = "none";
-        });
-
+    if (chk && chk.checked) {
+      data.productos.push({
+        id: chk.value,
+        cantidad: cantidadInput.value,
+        precio: precioInput.value
+      });
     }
+  });
+
+  const res = await fetch("../php/cotizaciones.php", {
+    method: "POST",
+    body: JSON.stringify(data)
+  });
+
+  const resultado = await res.json();
+  if (resultado.status === "error" || resultado.status === undefined || resultado.status === null) {
+    Swal.fire({
+      title: 'Error',
+      text: resultado.mensaje,
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
+
+  } else {
+    Swal.fire({
+      title: 'Éxitoso',
+      text: resultado.mensaje,
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    }).then(function () {
+      cargarCotizaciones();
+      modal.style.display = "none";
+    });
+
+  }
 }
 
 const modal = document.getElementById("myModal");

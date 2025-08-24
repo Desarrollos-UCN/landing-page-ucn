@@ -53,9 +53,9 @@ CREATE TABLE IF NOT EXISTS `cotizaciones` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ucnpage.cotizaciones: ~1 rows (aproximadamente)
-INSERT INTO `cotizaciones` (`id`, `nombre_completo`, `ciudad_id`, `direccion`, `celular`) VALUES
-	(2, 'jeiner aldana arenas', 7, 'mz 3 casa 10', '3014782018'),
-	(3, 'jeiner aldana arenas', 7, 'mz 3 casa 10', '3014782018');
+  INSERT INTO `cotizaciones` (`id`, `nombre_completo`, `ciudad_id`, `direccion`, `celular`) VALUES
+    (2, 'jeiner aldana arenas', 7, 'mz 3 casa 10', '3014782018'),
+    (3, 'jeiner aldana arenas', 7, 'mz 3 casa 10', '3014782018');
 
 -- Volcando estructura para tabla ucnpage.detalles_cotizacion
 CREATE TABLE IF NOT EXISTS `detalles_cotizacion` (
